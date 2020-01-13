@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: mq
+  cloud:
+    config:
+#      fail-fast: true
+#      discovery:
+#        service-id: config-server
+#        enabled: true
+#      profile: ${spring.profiles.active}
+#      label: ${spring.profiles.active}
+      name: aosp-cskt-teacher
+      uri: http://10.1.2.70:9002
+      #集成分布式事务，tx-lcn ,spring cloud bus(需要rabbitmq)
+      profile: hikari,rabbitmq,eureka,tc,cskt-teacher
+#      profile: mysql,mybatis,redis,mongodb,dbcache,eureka,tc,cskt-teacher
+      label: master
+feign:
+  hystrix:
+    enabled: true
